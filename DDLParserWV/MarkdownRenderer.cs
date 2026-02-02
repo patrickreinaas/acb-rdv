@@ -55,8 +55,10 @@ namespace DDLParserWV
             foreach (var item in protocol.NameSpace.Items)
             {
                 if (item.Type == EParseTreeElement.RMC)
+                {
                     output += RenderV2MethodTableLine((RMC)item, idx);
-                idx++;
+                    idx++;
+                }
             }
             return output;
         }
@@ -72,10 +74,7 @@ namespace DDLParserWV
             string name = method.GetName();
             string output = "";
             foreach (var variant in method.MethodDeclaration.V2_Variants1)
-            {
                 output += $"| {index} | {name} | [{variant.Name}](#{variant.Name.ToLower().Replace(":", "")}) |\n";
-                index++;
-            }
             return output;
         }
 
