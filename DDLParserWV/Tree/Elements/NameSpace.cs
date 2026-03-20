@@ -89,6 +89,9 @@ namespace DDLParserWV
                     case EParseTreeElement.DupSpaceDeclaration:
                         Items.Add(new DupSpaceDeclaration().Parse(s, log, depth + 1, majorVersion));
                         break;
+                    case EParseTreeElement.Constant:
+                        Items.Add(new Constant().Parse(s, log, depth + 1, majorVersion));
+                        break;
                     case EParseTreeElement.EnumDeclaration:
                         Items.Add(new EnumDeclaration().Parse(s, log, depth + 1, majorVersion));
                         break;

@@ -10,13 +10,13 @@ namespace DDLParserWV
         public override EParseTreeElement Type { get; set; } = EParseTreeElement.Enumerator;
         [JsonProperty("nsItem")]
         public NameSpaceItem NsItem { get; set; } = new NameSpaceItem();
-        [JsonProperty("type")]
+        [JsonProperty("value")]
         public string Value { get; set; }
 
         protected override Enumerator ParseTyped(Stream s, StringBuilder log, uint depth, uint majorVersion)
         {
             string tabs = Utils.MakeTabs(depth);
-            log.AppendLine($"{tabs}[EnumDeclaration]");
+            log.AppendLine($"{tabs}[Enumerator]");
             NsItem.Parse(s, log, depth + 1, majorVersion);
             Value = Utils.ReadString(s);
             log.AppendLine($"{tabs}\t[Value: {Value}]");
