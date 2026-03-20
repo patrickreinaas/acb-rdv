@@ -100,7 +100,7 @@
     <Compile Include="Database\Models\TelemetryTag.cs" />
     <Compile Include="Database\Models\User.cs" />
     <Compile Include="Data\Enums\GameMode.cs" />
-    <Compile Include="Data\Enums\GameType.cs" />
+    <Compile Include="Data\Enums\SessionType.cs" />
     <Compile Include="Data\Enums\LevelRange.cs" />
     <Compile Include="Data\Enums\Map.cs" />
     <Compile Include="Data\Enums\NatType.cs" />

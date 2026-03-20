@@ -82,7 +82,7 @@ namespace QuazalWV
                     client.GameSessionID = sesId;
                     newSes = new Session(sesId, reqCreateSes.Session, client);
                     // initialize params
-                    gameType = newSes.GameSession.Attributes.Find(param => param.Id == (uint)SessionParam.GameType);
+                    gameType = newSes.GameSession.Attributes.Find(param => param.Id == (uint)SessionParam.SessionType);
                     if (gameType == null)
                         Log.WriteLine(1, $"Inconsistent session state (id={newSes.Key.SessionId}), missing game type", LogSource.Session, Color.Red, client);
                     currPublicSlots = new Property() { Id = (uint)SessionParam.CurrentPublicSlots, Value = 0 };
@@ -92,7 +92,7 @@ namespace QuazalWV
                     newSes.GameSession.Attributes.Add(currPrivateSlots);
                     newSes.GameSession.Attributes.Add(accessibility);
                     // blind NAT type update
-                    var natType = newSes.GameSession.Attributes.Find(param => param.Id == (uint)SessionParam.NatType);
+                    var natType = newSes.GameSession.Attributes.Find(param => param.Id == (uint)SessionParam.SessionNatType);
                     if (natType == null)
                         Log.WriteLine(1, $"Inconsistent session state (id={newSes.Key.SessionId}), missing NAT type", LogSource.Session, Color.Red, client);
                     natType.Value = (uint)NatType.OPEN;

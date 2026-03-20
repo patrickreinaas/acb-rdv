@@ -54,7 +54,7 @@ namespace QuazalWV
                 case PresencePropertyId.GameMode:
                     return $"{Id}: {(GameMode)Value}";
                 case PresencePropertyId.GameType:
-                    return $"{Id}: {(GameType)Value}";
+                    return $"{Id}: {(SessionType)Value}";
                 case PresencePropertyId.SessionDLCMask:
                     return $"{Id}: {Value}";
                 default:

@@ -40,11 +40,11 @@ namespace QuazalWV
 
         public bool CheckQuery(GameSessionQuery query, ClientInfo client)
         {
-            var qMinLevelRange = query.Params.Find(param => param.Id == (uint)SessionParam.MinLevelRange);
-            var qMaxLevelRange = query.Params.Find(param => param.Id == (uint)SessionParam.MaxLevelRange);
+            var qMinLevelRange = query.Params.Find(param => param.Id == (uint)SessionParam.GamerLevelMin);
+            var qMaxLevelRange = query.Params.Find(param => param.Id == (uint)SessionParam.GamerLevelMax);
             var qGameMode = query.Params.Find(param => param.Id == (uint)SessionParam.GameMode);
-            var qMaxSlotsTaken = query.Params.Find(param => param.Id == (uint)SessionParam.QueryMaxSlotsTaken);
-            var qGameType = query.Params.Find(param => param.Id == (uint)SessionParam.GameType);
+            var qMaxSlotsTaken = query.Params.Find(param => param.Id == (uint)SessionParam.MaximumCurrentSlot);
+            var qGameType = query.Params.Find(param => param.Id == (uint)SessionParam.SessionType);
             // query integrity check
             if (qMinLevelRange == null || qMaxLevelRange == null || qGameMode == null || qGameType == null)
             {
@@ -67,7 +67,7 @@ namespace QuazalWV
             }
 
             var gameMode = GameSession.Attributes.Find(param => param.Id == (uint)SessionParam.GameMode);
-            var gameType = GameSession.Attributes.Find(param => param.Id == (uint)SessionParam.GameType);
+            var gameType = GameSession.Attributes.Find(param => param.Id == (uint)SessionParam.SessionType);
 
             if (gameMode == null || gameType == null)
             {
@@ -82,7 +82,7 @@ namespace QuazalWV
                 return false;
             }
 
-            uint slotsParam = gameType.Value == (uint)GameType.PRIVATE ? (uint)SessionParam.CurrentPrivateSlots : (uint)SessionParam.CurrentPublicSlots;
+            uint slotsParam = gameType.Value == (uint)SessionType.PRIVATE ? (uint)SessionParam.CurrentPrivateSlots : (uint)SessionParam.CurrentPublicSlots;
             var currentSlots = GameSession.Attributes.Find(param => param.Id == slotsParam);
             if (currentSlots == null)
             {
@@ -115,8 +115,8 @@ namespace QuazalWV
             foreach (var attr in GameSession.Attributes)
             {
                 if (attr.Id == (uint)SessionParam.IsPrivate
-                    || attr.Id == (uint)SessionParam.MinLevelRange
-                    || attr.Id == (uint)SessionParam.MaxLevelRange
+                    || attr.Id == (uint)SessionParam.GamerLevelMin
+                    || attr.Id == (uint)SessionParam.GamerLevelMax
                     || attr.Id == (uint)SessionParam.PunkbusterActive)
                     continue;
                 attrs.Add(attr);

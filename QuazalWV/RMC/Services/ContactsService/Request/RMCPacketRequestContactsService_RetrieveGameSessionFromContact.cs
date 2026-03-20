@@ -6,12 +6,12 @@ namespace QuazalWV
 {
     public class RMCPacketRequestContactsService_RetrieveGameSessionFromContact : RMCPRequest
     {
-        public GameType SessionType { get; set; }
+        public SessionType SessionType { get; set; }
         public List<string> FriendNames { get; set; }
 
         public RMCPacketRequestContactsService_RetrieveGameSessionFromContact(Stream s)
         {
-            SessionType = (GameType)Helper.ReadU32(s);
+            SessionType = (SessionType)Helper.ReadU32(s);
             FriendNames = new List<string>();
             uint count = Helper.ReadU32(s);
             for (uint i = 0; i < count; i++)

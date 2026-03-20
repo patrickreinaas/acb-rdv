@@ -45,17 +45,17 @@ namespace QuazalWV
                     return $"[CXB CRC: 0x{Value:X8}]";
                 case SessionParam.MapID:
                     return EnumToStr("Map", typeof(Map));
-                case SessionParam.HostLevelRange:
+                case SessionParam.GamerLevel:
                     return EnumToStr("Level range", typeof(LevelRange));
-                case SessionParam.MinLevelRange:
+                case SessionParam.GamerLevelMin:
                     return EnumToStr("Min level range", typeof(LevelRange));
-                case SessionParam.MaxLevelRange:
+                case SessionParam.GamerLevelMax:
                     return EnumToStr("Max level range", typeof(LevelRange));
                 case SessionParam.GameMode:
                     return EnumToStr("Mode", typeof(GameMode));
-                case SessionParam.GameType:
-                    return EnumToStr("Type", typeof(GameType));
-                case SessionParam.NatType:
+                case SessionParam.SessionType:
+                    return EnumToStr("Type", typeof(SessionType));
+                case SessionParam.SessionNatType:
                     return EnumToStr("NAT", typeof(NatType));
                 default:
                     string name = Enum.GetName(typeof(SessionParam), Id);

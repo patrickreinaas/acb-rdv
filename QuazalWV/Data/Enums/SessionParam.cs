@@ -13,24 +13,24 @@
         IsPrivate = 7,
         FreePublicSlots = 0x32,
         FreePrivateSlots = 0x33,
-        CxbCrcSum = 0x64,
+        CxbCrcSum = 0x64,           // Version
         MapID = 0x65,
-        HostLevelRange = 0x66,
-        LanguageID = 0x67,
-        RegionID = 0x68,
-        MinLevelRange = 0x69,
-        MaxLevelRange = 0x6A,
+        GamerLevel = 0x66,
+        LanguageID = 0x67,          // Language
+        RegionID = 0x68,            // Region
+        GamerLevelMin = 0x69,
+        GamerLevelMax = 0x6A,
         /// <summary>
         /// Seemingly always 1.
         /// </summary>
-        Unk6B = 0x6B,
+        GameType = 0x6B,
         GameMode = 0x6C,
-        QueryMaxSlotsTaken = 0x6D,
-        GameType = 0x6E,
+        MaximumCurrentSlot = 0x6D,
+        SessionType = 0x6E,
         Accessibility = 0x6F,
-        DlcValue = 0x70,
-        IsBeingPlayed = 0x71,
-        NatType = 0x72,
-        PunkbusterActive = 0x73
+        DlcID = 0x70,
+        SessionStarted = 0x71,
+        SessionNatType = 0x72,
+        PunkbusterActive = 0x73     // SessionLevel
     }
 }
