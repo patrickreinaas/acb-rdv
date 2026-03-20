@@ -40,7 +40,7 @@ namespace DDLParserWV
             if (MajorVersion == 2 && (MinorVersion < 5 || (MinorVersion == 5 && PatchVersion < 7)))
                 V2_Unknown = Utils.ReadU32(s);
             GlobalNamespace = new NameSpace(s, log, 1, MajorVersion);
-            while ((s.Position % 4) != 0)
+            while ((s.Position % 4) != 0 && s.Position < s.Length)
                 s.ReadByte();
         }
 
